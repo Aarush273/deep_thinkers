@@ -1,0 +1,209 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1e1e2e 0%, #2d2d44 100%);
+  color: #fff;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  background: linear-gradient(90deg, #2d3561 0%, #3d4580 100%);
+  padding: 20px;
+  border-bottom: 2px solid #4a5fa5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.app-header h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #64b5f6;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  background: #4a5fa5;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background: #5a6fb5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-play {
+  background: #4caf50;
+}
+
+.btn-play:hover {
+  background: #66bb6a;
+}
+
+.btn-stop {
+  background: #ff6b6b;
+}
+
+.btn-stop:hover {
+  background: #ff8a8a;
+}
+
+.btn-reset {
+  background: #ff9800;
+}
+
+.btn-reset:hover {
+  background: #ffb333;
+}
+
+.speed-control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(74, 95, 165, 0.5);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+.speed-control input {
+  width: 150px;
+}
+
+.app-main {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  gap: 20px;
+  height: 100%;
+  grid-template-areas:
+    "map stats"
+    "map trade"
+    "details events";
+}
+
+.map-section {
+  grid-area: map;
+  background: rgba(74, 95, 165, 0.2);
+  border: 1px solid #4a5fa5;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: auto;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stats-section {
+  background: rgba(74, 95, 165, 0.2);
+  border: 1px solid #4a5fa5;
+  border-radius: 8px;
+  padding: 15px;
+  grid-area: stats;
+}
+
+.trade-section {
+  background: rgba(74, 95, 165, 0.2);
+  border: 1px solid #4a5fa5;
+  border-radius: 8px;
+  padding: 15px;
+  grid-area: trade;
+  overflow-y: auto;
+}
+
+.bottom-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  grid-area: "details events";
+}
+
+.region-details {
+  background: rgba(74, 95, 165, 0.2);
+  border: 1px solid #4a5fa5;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: auto;
+  grid-area: details;
+}
+
+.events-section {
+  background: rgba(74, 95, 165, 0.2);
+  border: 1px solid #4a5fa5;
+  border-radius: 8px;
+  padding: 15px;
+  overflow-y: auto;
+  grid-area: events;
+}
+
+@media (max-width: 1400px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto;
+    grid-template-areas:
+      "map"
+      "stats"
+      "trade"
+      "details"
+      "events";
+  }
+
+  .bottom-panel {
+    grid-template-columns: 1fr;
+    grid-area: unset;
+  }
+
+  .right-panel {
+    grid-area: unset;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(74, 95, 165, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5fa5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a6fb5;
+}
